@@ -7,9 +7,49 @@ function Article(props){
   </div>
 }
 
+function Header(props){
+  return <header>
+    <h1><a href="/" onClick={(event)=>{
+      event.preventDefault()
+      props.onChangeMode()
+    }}>props.title</a></h1>
+  </header>
+}
+
+
+function Nav(props){
+  const lst = []
+  for (let i=0; i<props.topics.length; i++){
+    let t = props.topics[i]
+    lst.push(<li>
+      <a id={t.id} href={'/read/'+t.id} onClick={event=>{
+        event.preventDefault()
+        props.onChangeMode(event.target.id) //target은 이벤트를 유발시킨 a를 뜻함
+      }}>
+      {t.title}</a></li>)
+  }
+  return <nav>
+    <ol>
+      {lst}
+    </ol>
+  </nav>
+}
+
 function App() {
+  const topics = [
+    {id:1, title:'백'},
+    {id:2, title:'은'},
+    {id:3, title:'주'}
+  ]
   return (
     <div className="App">
+      <Header title = 'WEB header' onChangeMode={ ()=> {
+        alert('This is Header!')
+      }}></Header>
+      <Nav topics={topics} onChangeMode={(id)=>{
+        alert(id)
+      }}></Nav>
+
       <Article title='welcome' body='Hello, WEB'></Article>
     </div>
   );
