@@ -1,10 +1,10 @@
 // import logo from './logo.svg';
 import './App.css';
 function Article(props){
-  return <Article>
+  return <div>
     <h2>{props.title}</h2>
     {props.body}
-  </Article>
+  </div>
 }
 
 function App() {
