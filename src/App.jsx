@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import './Fruit.css';
+import './App.css';
 
-const Fruit = () => {
+const App = () => {
   const [fruits, setFruits] = useState([]);
 
   const handleClick = async () => {
@@ -37,4 +37,4 @@ const Fruit = () => {
   )
 }
 
-export default Fruit;
+export default App;
